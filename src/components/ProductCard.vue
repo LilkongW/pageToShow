@@ -16,14 +16,17 @@
   </template>
   
   <script setup lang="ts">
-    defineProps({
-      title: String,
-      description: String,
-      price: String,
-      image: String,
-      productId: String  // Agregar un ID único para cada producto
-    })
-  </script>
+  interface Props {
+    title: string
+    description: string
+    price: number
+    image: string
+    productId: string
+    discount?: number
+  }
+  
+  defineProps<Props>()
+  </script>  
   
   <style scoped>
   /* Puedes agregar estilos adicionales para la card aquí */

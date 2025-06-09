@@ -2,7 +2,7 @@
   <div class="min-h-[calc(100vh-64px)] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-slate-100">
     <div class="w-full max-w-md relative">
       <button
-        @click="onClose"
+        @click="props.onClose"
         class="absolute top-4 left-4 p-2 rounded-full hover:bg-gray-100 transition"
         aria-label="Volver"
       >
@@ -112,7 +112,7 @@
 
           <p class="text-sm text-center text-gray-500 mt-6">
             ¿Ya tienes una cuenta?
-            <a href="#" @click.prevent="onLoginClick" class="text-blue-600 font-medium">Iniciar sesión</a>
+            <a href="#" @click.prevent="props.onLoginClick" class="text-blue-600 font-medium">Iniciar sesión</a>
           </p>
         </form>
       </div>
@@ -130,7 +130,8 @@ interface Props {
   onClose: () => void;
   onLoginClick: () => void;
 }
-defineProps<Props>();
+
+const props = defineProps<Props>();
 
 const formData = reactive({
   firstName: "",
@@ -173,7 +174,7 @@ const handleSubmit = () => {
   isLoading.value = true;
   setTimeout(() => {
     isLoading.value = false;
-    defineProps().onRegisterSuccess();
+    props.onRegisterSuccess();
   }, 1500);
 };
 </script>

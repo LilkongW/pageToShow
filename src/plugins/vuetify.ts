@@ -1,5 +1,5 @@
 import { createVuetify } from 'vuetify'
-import 'vuetify/styles'
+
 import { aliases, mdi } from 'vuetify/iconsets/mdi'
 
 export default createVuetify({
